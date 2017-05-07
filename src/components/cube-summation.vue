@@ -25,7 +25,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      input: 'as'
+      input: ''
     }
   },
 
@@ -44,15 +44,15 @@ export default {
       return m
     },
     updateMatrix (matrix, data) {
-      data = data.map((cors) => parseInt(cors))
-      matrix[data[0] - 1][data[1] - 1][data[2] - 1] = data[3]
+      let coors = data.map((cors) => parseInt(cors))
+      matrix[coors[0] - 1][coors[1] - 1][coors[2] - 1] = coors[3]
     },
     queryMatrix (matrix, data) {
       let i = 0
-      data = data.map((cors) => parseInt(cors))
-      for (let x = data[0] - 1; x <= data[3] - 1; x++) {
-        for (let y = data[1] - 1; y <= data[4] - 1; y++) {
-          for (let z = data[2] - 1; z <= data[5] - 1; z++) {
+      let coors = data.map((cors) => parseInt(cors))
+      for (let x = coors[0] - 1; x <= coors[3] - 1; x++) {
+        for (let y = coors[1] - 1; y <= coors[4] - 1; y++) {
+          for (let z = coors[2] - 1; z <= coors[5] - 1; z++) {
             i += matrix[x][y][z]
           }
         }
